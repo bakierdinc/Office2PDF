@@ -6,7 +6,7 @@ namespace Office2PDF.Converters
 {
     internal sealed class ExcelConverter : IFileConverter
     {
-        public bool CanConvert(string extension) => extension == ".xlsx" || extension == ".xls";
+        public bool CanConvert(string extension) => ".xlsx".Equals(extension, StringComparison.OrdinalIgnoreCase) || ".xls".Equals(extension, StringComparison.OrdinalIgnoreCase);
 
         public async Task<byte[]> ConvertAsync(IFormFile file, CancellationToken ct)
         {
